@@ -12,8 +12,8 @@ var grid = createArray(gridSize, gridSize);
 function run(){
     drawGrid(grid);
     var tempGrid = createArray(gridSize, gridSize);
-    for(var x = 3; x < gridSize-3; x++){
-        for(var y = 3; y < gridSize-3; y++){
+    for(var x = 1; x < gridSize-1; x++){
+        for(var y = 1; y < gridSize-1; y++){
             tempGrid[x][y] = shouldBeAlive(grid[x][y], getNumberOfAliveNeighbours(x,y,grid));
         }
     }
