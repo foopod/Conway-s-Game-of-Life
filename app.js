@@ -1,10 +1,10 @@
  var ctx;
 var canvas;
-var size = 1;
+var size = 2;
 
 var x = 0;
 var y = 0;
-var gridSize = 500;
+var gridSize = 400;
 var grid = createArray(gridSize, gridSize);
 
 
@@ -12,8 +12,8 @@ var grid = createArray(gridSize, gridSize);
 function run(){
     drawGrid(grid);
     var tempGrid = createArray(gridSize, gridSize);
-    for(var x = 1; x < gridSize-1; x++){
-        for(var y = 1; y < gridSize-1; y++){
+    for(var x = 3; x < gridSize-3; x++){
+        for(var y = 3; y < gridSize-3; y++){
             tempGrid[x][y] = shouldBeAlive(grid[x][y], getNumberOfAliveNeighbours(x,y,grid));
         }
     }
