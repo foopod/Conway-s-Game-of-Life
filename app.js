@@ -23,7 +23,6 @@ function run(){
 
 
 function shouldBeAlive(currentState, numberOfAliveNeighbours){
-	return numberOfAliveNeighbours > 1;
     return (numberOfAliveNeighbours === 2 || numberOfAliveNeighbours === 3) && !(!currentState && numberOfAliveNeighbours <3);
 }
 
