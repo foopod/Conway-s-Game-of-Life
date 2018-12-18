@@ -23,7 +23,7 @@ function run(){
 
 
 function shouldBeAlive(currentState, numberOfAliveNeighbours){
-	return numberOfAliveNeighbours > 0;
+	return numberOfAliveNeighbours > 1;
     return (numberOfAliveNeighbours === 2 || numberOfAliveNeighbours === 3) && !(!currentState && numberOfAliveNeighbours <3);
 }
 
@@ -44,7 +44,7 @@ function init(){
 
     for(var x = 1; x < gridSize-1; x++){
         for(var y = 1; y < gridSize-1; y++){
-            if(Math.random() < 0.001){
+            if(Math.random() < 0.01){
                 grid[x][y] = true;
             }
         }
