@@ -1,10 +1,10 @@
  var ctx;
 var canvas;
-var size = 2;
+var size = 3;
 
 var x = 0;
 var y = 0;
-var gridSize = 400;
+var gridSize = 250;
 var grid = createArray(gridSize, gridSize);
 
 
