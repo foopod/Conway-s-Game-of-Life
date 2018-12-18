@@ -41,8 +41,8 @@ function init(){
 	ctx = canvas.getContext('2d');
     resizeCanvas();
 
-    for(var x = 1; x < gridSize-1; x++){
-        for(var y = 1; y < gridSize-1; y++){
+    for(var x = 1 + 50; x < gridSize-1-50; x++){
+        for(var y = 1 + 50; y < gridSize-1-50; y++){
             if(Math.random() < 0.1){
                 grid[x][y] = true;
             }
