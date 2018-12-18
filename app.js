@@ -43,7 +43,7 @@ function init(){
 
     for(var x = 1; x < gridSize-1; x++){
         for(var y = 1; y < gridSize-1; y++){
-            if(Math.random() < 0.2){
+            if(Math.random() < 0.5){
                 grid[x][y] = true;
             }
         }
