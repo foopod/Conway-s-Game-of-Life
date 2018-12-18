@@ -5,10 +5,31 @@ var size = 3;
 var x = 0;
 var y = 0;
 var gridSize = 250;
-var grid = createArray(gridSize, gridSize);
+var grid;
 
+//Setting up the canvas and kicking off our run method
+function init(){
+    canvas = document.getElementById('app');
+	ctx = canvas.getContext('2d');
+    resizeCanvas();
+	
+	//create grid
+    grid = createArray(gridSize, gridSize);
+	
+	//randomize centre of grid
+    for(var x = 1 + 50; x < gridSize-1-50; x++){
+        for(var y = 1 + 50; y < gridSize-1-50; y++){
+            if(Math.random() < 0.1){
+                grid[x][y] = true;
+            }
+        }
+    }
+    
+	//start loop
+    setInterval(run, 100);
+}
 
-
+// loop
 function run(){
     drawGrid(grid);
     var tempGrid = createArray(gridSize, gridSize);
@@ -21,47 +42,8 @@ function run(){
     
 }
 
-
 function shouldBeAlive(currentState, numberOfAliveNeighbours){
     return (numberOfAliveNeighbours === 2 || numberOfAliveNeighbours === 3) && !(!currentState && numberOfAliveNeighbours <3);
-}
-
-function drawGrid(grid){
-    for(var x = 3; x < gridSize-3; x++){
-        for(var y = 3; y < gridSize-3; y++){
-            drawCell(grid[x][y],x,y);   
-        }
-    }
-}
-
-
-//Setting up the canvas and kicking off our run method
-function init(){
-    canvas = document.getElementById('app');
-	ctx = canvas.getContext('2d');
-    resizeCanvas();
-
-    for(var x = 1 + 50; x < gridSize-1-50; x++){
-        for(var y = 1 + 50; y < gridSize-1-50; y++){
-            if(Math.random() < 0.1){
-                grid[x][y] = true;
-            }
-        }
-    }
-    
-    setInterval(run, 100);
-}
-
-function createArray(x) {
-    var arr = new Array(x);
-
-    for (var i = 0; i < x; i++) {
-        arr[i] = new Array(x);
-        for(var j = 0; j < x; j++){
-            arr[i][j] = false;
-        }
-    }
-    return arr;
 }
 
 function getNumberOfAliveNeighbours(x, y, grid){
@@ -102,6 +84,26 @@ function drawCell(isAlive,x,y){
     }
     
     ctx.fillRect(x*size,y*size,size,size);    
+}
+
+function drawGrid(grid){
+    for(var x = 3; x < gridSize-3; x++){
+        for(var y = 3; y < gridSize-3; y++){
+            drawCell(grid[x][y],x,y);   
+        }
+    }
+}
+
+function createArray(x) {
+    var arr = new Array(x);
+
+    for (var i = 0; i < x; i++) {
+        arr[i] = new Array(x);
+        for(var j = 0; j < x; j++){
+            arr[i][j] = false;
+        }
+    }
+    return arr;
 }
 
 function resizeCanvas(e) {
